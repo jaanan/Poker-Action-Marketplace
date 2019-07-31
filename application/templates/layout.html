@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>TodoApp</title>
+</head>
+
+<body>
+  {% if current_user.is_authenticated %}
+  <p>
+    Logged in as: {{current_user.name}}.<a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+  </p>
+  {% else %}
+  <a href="{{ url_for('auth_login') }}">Login</a>
+  {% endif %}
+  <ul>
+    <li><a href="{{ url_for('tasks_index') }}">List Tasks</a></li>
+    <li><a href="{{ url_for('tasks_form') }}">New task</a></li>
+  </ul>
+
+
+  {% block body %}
+  <p>
+    Content.
+  </p>
+  {% endblock %}
+</body>
+
+</html>

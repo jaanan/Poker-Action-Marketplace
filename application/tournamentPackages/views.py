@@ -16,6 +16,7 @@ def tournaments_form():
 def tournaments_create():
     form = TournamentPackageForm(request.form)
     t = TournamentPackage(form.tournament.data, form.buyIn.data, form.pctToBeSold.data)
+
     #t.account_id = current_user.id
 
     db.session().add(t)

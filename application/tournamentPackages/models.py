@@ -5,7 +5,7 @@ class TournamentPackage(db.Model):
     tournament = db.Column(db.String(144), nullable=False)
     buyIn = db.Column(db.Integer, nullable=False)
     pctToBeSold = db.Column(db.Integer, nullable=False)
-    account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=True)
+    #account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
     date_created = db.Column(db.DateTime, default= db.func.current_timestamp())
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())

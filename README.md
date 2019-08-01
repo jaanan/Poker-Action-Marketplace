@@ -7,3 +7,9 @@ purpose of this site is to connect the sellers and the buyers conveniently.
 ### Database diagram
 
 <https://github.com/Anssikka/Poker-Action-Marketplace/blob/master/Dokumentaatio/Tietokantakaavio.png?raw=true>
+
+## Heroku
+
+<https://poker-action-marketplace.herokuapp.com/tournaments/>
+
+

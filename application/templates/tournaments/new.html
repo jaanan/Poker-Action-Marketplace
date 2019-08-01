@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('tournaments_create') }}">
+  <table>
+    <tr>
+      <td>
+        {{ form.tournament.label }}
+      </td>
+      <td>
+        {{ form.tournament }}
+      </td>
+    </tr>
+    <tr>
+      <td>{{ form.buyIn.label }}</td>
+      <td>{{ form.buyIn }}</td>
+    </tr>
+      <tr>
+        <td>{{ form.pctToBeSold.label }}</td>
+        <td>{{ form.pctToBeSold }}</td>
+      </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Add a new tournament to the marketplace" />
+      </td>
+    </tr>
+</form>
+{% endblock %}

@@ -21,6 +21,9 @@ from application.tasks import views
 from application.auth import models
 from application.auth import views
 
+from application.tournamentPackages import models
+from application.tournamentPackages import views
+
 
 #login
 

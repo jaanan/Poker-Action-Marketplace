@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>Hello world</h1>
+<table>
+  <th>Tournaments</th>
+  {% for tournament in tournaments %}
+  <tr>
+    <td>{{ tournament.tournament }}</td>
+    <td>{{ tournament.buyIn }}</td>
+    <td>{{ tournament.pctToBeSold }}</td>
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}

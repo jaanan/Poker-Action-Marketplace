@@ -5,6 +5,7 @@ class TournamentPackageForm(FlaskForm):
     tournament = StringField('Tournament name')
     buyIn = IntegerField('BuyIn')
     pctToBeSold = IntegerField('pctToBeSold')
+    pctLeft = IntegerField('pctLeft')
 
     class Meta:
         csrf = False

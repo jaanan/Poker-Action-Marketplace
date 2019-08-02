@@ -5,6 +5,7 @@ class TournamentPackage(db.Model):
     tournament = db.Column(db.String(144), nullable=False)
     buyIn = db.Column(db.Integer, nullable=False)
     pctToBeSold = db.Column(db.Integer, nullable=False)
+    pctLeft = db.Column(db.Integer, nullable=False)
     #account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
     date_created = db.Column(db.DateTime, default= db.func.current_timestamp())
@@ -14,3 +15,4 @@ class TournamentPackage(db.Model):
         self.tournament = tournament
         self.buyIn = buyIn
         self.pctToBeSold = pctToBeSold
+        self.pctLeft = pctToBeSold

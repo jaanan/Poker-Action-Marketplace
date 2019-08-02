@@ -16,6 +16,7 @@ def tournaments_form():
 def tournaments_create():
     form = TournamentPackageForm(request.form)
     t = TournamentPackage(form.tournament.data, form.buyIn.data, form.pctToBeSold.data)
+    t.pctLeft = form.pctToBeSold.data
 
     #t.account_id = current_user.id
 
@@ -23,3 +24,14 @@ def tournaments_create():
     db.session().commit()
 
     return redirect(url_for("tournaments_index"))
+
+@app.route('/tournaments/<tournament_id>', methods=["POST"])
+def tournaments_buy_percentage(tournament_id):
+    t = TournamentPackage.query.get(tournament_id)
+
+    percentage = int(request.form['text'])
+
+    t.pctLeft = t.pctLeft - percentage
+    db.session.commit()
+
+    return redirect(url_for('tournaments_index'))

@@ -4,11 +4,19 @@
 <h1>Welcome to Poker Action Marketplace</h1>
 <table>
   <th>Tournaments</th>
+  <th>Buyin</th>
+  <th>% for sale</th>
+  <th>% still left</th>
   {% for tournament in tournaments %}
   <tr>
     <td>{{ tournament.tournament }}</td>
     <td>{{ tournament.buyIn }}</td>
     <td>{{ tournament.pctToBeSold }}</td>
+    <td>{{ tournament.pctLeft }}</td>
+    <td><form method="POST", action="{{ url_for('tournaments_buy_percentage', tournament_id = tournament.id) }}">
+      <input name="text">
+      <input type="submit", value='Buy %'>
+    </form></td>
   </tr>
 {% endfor %}
 </table>

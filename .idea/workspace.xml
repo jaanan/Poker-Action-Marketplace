@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b3cdd31-d7aa-488f-8bd0-55ea591510e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/tournaments/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/tournaments/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/tournaments/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/tournaments/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/tournamentPackages/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournamentPackages/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/tournamentPackages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournamentPackages/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/tournamentPackages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournamentPackages/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/tournaments.db" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournaments.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -117,8 +111,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/application/tournamentPackages/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="594">
-                  <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+                <state relative-caret-position="396">
+                  <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -267,12 +261,12 @@
       <workItem from="1564465842845" duration="5451000" />
       <workItem from="1564553992472" duration="8207000" />
       <workItem from="1564631847480" duration="9818000" />
-      <workItem from="1564718178756" duration="5920000" />
+      <workItem from="1564718178756" duration="6248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29396000" />
+    <option name="totallyTimeSpent" value="29724000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1287" y="-360" width="1294" height="1407" extended-state="0" />
@@ -389,8 +383,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/tournamentPackages/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+        <state relative-caret-position="396">
+          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

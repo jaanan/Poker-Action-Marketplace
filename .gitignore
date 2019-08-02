@@ -2,3 +2,5 @@ venv
 __pycach__
 tasks.db 
 .idea/
+.idea
+.idea\

@@ -18,7 +18,7 @@ def tournaments_create():
     t = TournamentPackage(form.tournament.data, form.buyIn.data, form.pctToBeSold.data)
     t.pctLeft = form.pctToBeSold.data
 
-    #t.account_id = current_user.id
+    t.account_id = current_user.id
 
     db.session().add(t)
     db.session().commit()

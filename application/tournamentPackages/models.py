@@ -47,13 +47,16 @@ class TournamentPackage(Base):
                 " LEFT JOIN tournament_package ON bought_action_from_tournament.tournament_package_id = tournament_package.id"
                 " WHERE bought_action_from_tournament.buyer_id = {}".format(id))
 
+        print('ENSIMMAINEN ETAPPI!')
         res = db.engine.execute(stmt)
+        print('TOINEN ETAPPI')
         asAnArray = []
         for row in res:
             temp = list(row)
             asAnArray.append(temp)
 
         return asAnArray
+
 
 class BoughtActionFromTournament(Base):
     tournament_package_id = db.Column(db.Integer, db.ForeignKey('tournament_package.id'), nullable=False)

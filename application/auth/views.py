@@ -43,5 +43,3 @@ def auth_register():
     db.session().commit()
 
     return redirect(url_for("tournaments_index"))
-
-    #return True

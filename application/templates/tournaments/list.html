@@ -3,12 +3,14 @@
 {% block body %}
 <h1>Welcome to Poker Action Marketplace</h1>
 <table>
+  <th>Seller</th>
   <th>Tournaments</th>
   <th>Buyin</th>
   <th>% for sale</th>
   <th>% still left</th>
   {% for tournament in tournaments %}
   <tr>
+    <td>{{ tournament.user }}</td>
     <td>{{ tournament.tournament }}</td>
     <td>{{ tournament.buyIn }}</td>
     <td>{{ tournament.pctToBeSold }}</td>

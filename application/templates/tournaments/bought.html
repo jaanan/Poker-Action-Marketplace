@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>These are the tournaments you have bought action from:</h1>
+<table>
+  <th>Seller</th>
+  <th>Tournament name</th>
+  <th>buyIn</th>
+  <th>% Bought</th>
+  <th>Money to send</th>
+  {% for tournament in boughtTournaments %}
+  <tr>
+    <td>{{ tournament[0] }}</td>
+    <td>{{ tournament[1] }}</td>
+    <td>{{ tournament[2] }}</td>
+    <td>{{ tournament[3] }}</td>
+    <td>{{ (tournament[2]*(tournament[3]/100)) }}</td>
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}

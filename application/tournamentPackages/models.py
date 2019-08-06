@@ -40,10 +40,27 @@ class TournamentPackage(Base):
 
         return tournaments
 
+    @staticmethod
+    def tournaments_bought_action_from(id):
+        stmt = text("SELECT bought_action_from_tournament.seller_name, tournament_package.tournament, tournament_package.buyin, bought_action_from_tournament.actionBoughtPct FROM account"
+                " left join bought_action_from_tournament ON account.id = bought_action_from_tournament.buyer_id"
+                " left join tournament_package on bought_action_from_tournament.tournament_package_id = tournament_package.id"
+                " where bought_action_from_tournament.buyer_id = {}".format(id))
+
+        res = db.engine.execute(stmt)
+        asAnArray = []
+        for row in res:
+            temp = list(row)
+            asAnArray.append(temp)
+
+        return asAnArray
+
 class BoughtActionFromTournament(Base):
     tournament_package_id = db.Column(db.Integer, db.ForeignKey('tournament_package.id'), nullable=False)
+    seller_name = db.Column(db.String(144), nullable=False)
     buyer_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
     actionBoughtPct = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, actionBoughtPct):
+    def __init__(self, actionBoughtPct, seller_name):
         self.actionBoughtPct = actionBoughtPct
+        self.seller_name = seller_name

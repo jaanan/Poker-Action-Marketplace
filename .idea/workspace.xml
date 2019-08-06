@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b3cdd31-d7aa-488f-8bd0-55ea591510e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/templates/tournaments/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/tournaments/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/tournamentPackages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournamentPackages/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/tournamentPackages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournamentPackages/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/tournaments.db" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournaments.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tournaments.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +26,40 @@
     <expand />
     <select />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/application/tournamentPackages/views.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="954">
+                    <caret line="73" selection-start-line="73" selection-end-line="73" />
+                    <folding>
+                      <element signature="e#0#31#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/application/tournamentPackages/models.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="213">
+                    <caret line="35" column="39" lean-forward="true" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+                    <folding>
+                      <element signature="e#0#26#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="PokerActionMarketplace" />
   </component>
@@ -36,31 +68,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="-7">
               <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/tournamentPackages/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="353">
+              <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/tournamentPackages/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="785">
-              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,16 +113,16 @@
         <option value="$PROJECT_DIR$/application/__init__.py" />
         <option value="$PROJECT_DIR$/application/auth/views.py" />
         <option value="$PROJECT_DIR$/application/auth/models.py" />
-        <option value="$PROJECT_DIR$/application/tournamentPackages/models.py" />
         <option value="$PROJECT_DIR$/application/tournamentPackages/views.py" />
+        <option value="$PROJECT_DIR$/application/tournamentPackages/models.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="402" />
     <option name="y" value="-8" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="width" value="1303" />
+    <option name="height" value="776" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -239,12 +259,12 @@
       <workItem from="1564718178756" duration="7145000" />
       <workItem from="1564930099182" duration="1370000" />
       <workItem from="1565005429283" duration="9957000" />
-      <workItem from="1565064058203" duration="18454000" />
+      <workItem from="1565064058203" duration="19177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60402000" />
+    <option name="totallyTimeSpent" value="61125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -377,27 +397,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="-7">
           <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/tournamentPackages/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/tournamentPackages/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+        <state relative-caret-position="954">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tournamentPackages/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

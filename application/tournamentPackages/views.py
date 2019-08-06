@@ -23,8 +23,8 @@ def tournaments_form():
 @login_required
 def tournaments_create():
     form = TournamentPackageForm(request.form)
-    t = TournamentPackage(form.tournament.data, form.buyIn.data, form.pctToBeSold.data)
-    t.pctLeft = form.pctToBeSold.data
+    t = TournamentPackage(form.tournament.data, form.buyin.data, form.pcttobesold.data)
+    t.pctLeft = form.pcttobesold.data
 
     t.account_id = current_user.id
 
@@ -40,7 +40,7 @@ def tournaments_buy_percentage(tournament_id):
     user = User.query.get(t.account_id)
     percentage = int(request.form['text'])
 
-    t.pctLeft = t.pctLeft - percentage
+    t.pctleft = t.pctleft - percentage
 
     boughtAction = BoughtActionFromTournament(percentage, user.username)
     boughtAction.buyer_id = current_user.id

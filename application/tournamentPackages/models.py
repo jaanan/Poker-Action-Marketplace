@@ -5,17 +5,17 @@ from flask_login import current_user
 
 class TournamentPackage(Base):
     tournament = db.Column(db.String(144), nullable=False)
-    buyIn = db.Column(db.Integer, nullable=False)
-    pctToBeSold = db.Column(db.Integer, nullable=False)
-    pctLeft = db.Column(db.Integer, nullable=False)
+    buyin = db.Column(db.Integer, nullable=False)
+    pcttobesold = db.Column(db.Integer, nullable=False)
+    pctleft = db.Column(db.Integer, nullable=False)
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
 
-    def __init__(self, tournament, buyIn, pctToBeSold):
+    def __init__(self, tournament, buyin, pcttobesold):
         self.tournament = tournament
-        self.buyIn = buyIn
-        self.pctToBeSold = pctToBeSold
-        self.pctLeft = pctToBeSold
+        self.buyin = buyin
+        self.pcttobesold = pcttobesold
+        self.pctleft = pcttobesold
         self.user = ''
         self.userid = ''
 
@@ -33,7 +33,7 @@ class TournamentPackage(Base):
             tournament.user = row[-2]
             tournament.id = row[0]
             tournament.userid = row[7]
-            tournament.pctLeft = row[6]
+            tournament.pctleft = row[6]
             if tournament.userid == current_user.id:
                 continue
             tournaments.append(tournament)
@@ -42,12 +42,11 @@ class TournamentPackage(Base):
 
     @staticmethod
     def tournaments_bought_action_from(id):
-        stmt = text("SELECT bought_action_from_tournament.seller_name, tournament_package.tournament, bought_action_from_tournament.actionBoughtPct FROM account"
+        stmt = text("SELECT bought_action_from_tournament.seller_name, tournament_package.tournament, tournament_package.buyIn, bought_action_from_tournament.actionboughtpct FROM account"
                 " LEFT JOIN bought_action_from_tournament ON account.id = bought_action_from_tournament.buyer_id"
                 " LEFT JOIN tournament_package ON bought_action_from_tournament.tournament_package_id = tournament_package.id"
                 " WHERE bought_action_from_tournament.buyer_id = {}".format(id))
 
-        # tournament_package.buyIn,
 
         print('ENSIMMAINEN ETAPPI!')
         res = db.engine.execute(stmt)
@@ -64,8 +63,8 @@ class BoughtActionFromTournament(Base):
     tournament_package_id = db.Column(db.Integer, db.ForeignKey('tournament_package.id'), nullable=False)
     seller_name = db.Column(db.String(144), nullable=False)
     buyer_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
-    actionBoughtPct = db.Column(db.Integer, nullable=False)
+    actionboughtpct = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, actionBoughtPct, seller_name):
-        self.actionBoughtPct = actionBoughtPct
+    def __init__(self, actionboughtpct, seller_name):
+        self.actionboughtpct = actionboughtpct
         self.seller_name = seller_name

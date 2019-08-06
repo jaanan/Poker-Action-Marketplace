@@ -13,9 +13,9 @@
   <tr>
     <td>{{ tournament.user }}</td>
     <td>{{ tournament.tournament }}</td>
-    <td>{{ tournament.buyIn }}</td>
-    <td>{{ tournament.pctToBeSold }}</td>
-    <td>{{ tournament.pctLeft }}</td>
+    <td>{{ tournament.buyin }}</td>
+    <td>{{ tournament.pcttobesold }}</td>
+    <td>{{ tournament.pctleft }}</td>
     <td><form method="POST", action="{{ url_for('tournaments_buy_percentage', tournament_id = tournament.id) }}">
       <input name="text">
       <input type="submit", value='Buy %'>

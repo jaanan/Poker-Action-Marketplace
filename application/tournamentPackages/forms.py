@@ -3,9 +3,9 @@ from wtforms import StringField, IntegerField
 
 class TournamentPackageForm(FlaskForm):
     tournament = StringField('Tournament name')
-    buyIn = IntegerField('BuyIn')
-    pctToBeSold = IntegerField('pctToBeSold')
-    pctLeft = IntegerField('pctLeft')
+    buyin = IntegerField('buyin')
+    pcttobesold = IntegerField('pcttobesold')
+    pctleft = IntegerField('pctleft')
 
     class Meta:
         csrf = False

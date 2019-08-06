@@ -1,9 +1,9 @@
 from application import app, db
 from flask import render_template, request, redirect, url_for
-from application.tournamentPackages.models import TournamentPackage
+from application.tournamentPackages.models import TournamentPackage, BoughtActionFromTournament
 from flask_login import login_required, current_user
 from application.tournamentPackages.forms import TournamentPackageForm
-import application.tournamentPackages.models
+
 
 @app.route('/tournaments/', methods=['GET'])
 @login_required
@@ -36,10 +36,15 @@ def tournaments_create():
 @login_required
 def tournaments_buy_percentage(tournament_id):
     t = TournamentPackage.query.get(tournament_id)
-
     percentage = int(request.form['text'])
 
     t.pctLeft = t.pctLeft - percentage
+
+    boughtAction = BoughtActionFromTournament(percentage)
+    boughtAction.buyer_id = current_user.id
+    boughtAction.tournament_package_id = tournament_id
+
+    db.session.add(boughtAction)
     db.session.commit()
 
     return redirect(url_for('tournaments_index'))

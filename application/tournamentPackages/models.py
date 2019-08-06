@@ -33,8 +33,17 @@ class TournamentPackage(Base):
             tournament.user = row[-2]
             tournament.id = row[0]
             tournament.userid = row[7]
+            tournament.pctLeft = row[6]
             if tournament.userid == current_user.id:
                 continue
             tournaments.append(tournament)
 
         return tournaments
+
+class BoughtActionFromTournament(Base):
+    tournament_package_id = db.Column(db.Integer, db.ForeignKey('tournament_package.id'), nullable=False)
+    buyer_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
+    actionBoughtPct = db.Column(db.Integer, nullable=False)
+
+    def __init__(self, actionBoughtPct):
+        self.actionBoughtPct = actionBoughtPct

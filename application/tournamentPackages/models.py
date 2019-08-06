@@ -42,10 +42,12 @@ class TournamentPackage(Base):
 
     @staticmethod
     def tournaments_bought_action_from(id):
-        stmt = text("SELECT bought_action_from_tournament.seller_name, tournament_package.tournament, tournament_package.buyIn, bought_action_from_tournament.actionBoughtPct FROM account"
+        stmt = text("SELECT bought_action_from_tournament.seller_name, tournament_package.tournament, bought_action_from_tournament.actionBoughtPct FROM account"
                 " LEFT JOIN bought_action_from_tournament ON account.id = bought_action_from_tournament.buyer_id"
                 " LEFT JOIN tournament_package ON bought_action_from_tournament.tournament_package_id = tournament_package.id"
                 " WHERE bought_action_from_tournament.buyer_id = {}".format(id))
+
+        # tournament_package.buyIn,
 
         print('ENSIMMAINEN ETAPPI!')
         res = db.engine.execute(stmt)

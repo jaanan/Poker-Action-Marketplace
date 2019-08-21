@@ -69,5 +69,10 @@ def show_purchased_tournaments():
 @app.route('/tournaments/sold', methods=["GET"])
 @login_required
 def show_sold_tournaments():
-    return True
+    soldtournaments = TournamentPackage.tournaments_sold_action_from(current_user.id)
+    for row in soldtournaments:
+        print(row.tournament)
+        for tour in row.buyers:
+            print(tour)
+    return render_template('tournaments/sold.html', soldTournaments = soldtournaments)
 

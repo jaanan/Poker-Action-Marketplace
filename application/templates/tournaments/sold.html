@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>These are the tournaments you have sold action for:</h1>
+<table>
+    <th>Tournament name</th>
+    <th>buyIn</th>
+    <th>% Total for sale</th>
+    <th>% Left for sale</th>
+{% for tournament in soldTournaments %}
+<tr>
+  <td>{{ tournament.tournament }}</td>
+  <td>{{ tournament.buyin }}</td>
+  <td>{{ tournament.pcttobesold }}</td>
+  <td>{{ tournament.pctleft }}</td>
+  <tr>
+    <th>Buyer</th>
+    <th>% Bought</th>
+  </tr>
+  {% for buyer in tournament.buyers %}
+  <tr>
+    <td>{{ buyer[2] }}</td>
+    <td>{{ buyer[1] }}</td>
+  </tr>
+    
+    {% endfor %}
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

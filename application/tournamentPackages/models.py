@@ -48,15 +48,54 @@ class TournamentPackage(Base):
                 " WHERE bought_action_from_tournament.buyer_id = {}".format(id))
 
 
-        print('ENSIMMAINEN ETAPPI!')
         res = db.engine.execute(stmt)
-        print('TOINEN ETAPPI')
         asAnArray = []
         for row in res:
             temp = list(row)
             asAnArray.append(temp)
 
         return asAnArray
+
+    @staticmethod
+    def tournaments_sold_action_from(id):
+        stmt = text("SELECT tournament, buyin, pcttobesold, pctleft, tournament_package.id FROM tournament_package "
+        "LEFT join account on tournament_package.account_id = account.id "
+        "where account_id = {}".format(id))
+
+        res = db.engine.execute(stmt)
+
+        class soldTournaments:
+            def __init__(self, tournament, buyin, pcttobesold, pctleft, id):
+                self.tournament = tournament
+                self.buyin = buyin
+                self.pcttobesold = pcttobesold
+                self.pctleft = pctleft
+                self.id = id
+                self.buyers = []
+
+        tournaments = []
+        for row in res:
+            temp = list(row)
+            tournm = soldTournaments(temp[0], temp[1], temp[2], temp[3], temp[4])
+            tournaments.append(tournm)
+            tournm.buyers = TournamentPackage.buyers_for_tournament(temp[4])
+
+        return tournaments
+
+
+    @staticmethod
+    def buyers_for_tournament(tournamentid):
+        stmt = text("SELECT buyer_id, actionboughtpct, account.name from bought_action_from_tournament LEFT JOIN account on buyer_id = account.id "
+                    "where bought_action_from_tournament.tournament_package_id ={}".format(tournamentid))
+
+        res = db.engine.execute(stmt)
+        buyers = []
+        for row in res:
+            temp = list(row)
+            buyers.append(temp)
+
+        return buyers
+
 
 
 class BoughtActionFromTournament(Base):

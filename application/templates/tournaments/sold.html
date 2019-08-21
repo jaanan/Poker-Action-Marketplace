@@ -19,12 +19,14 @@
   <td>{{ tournament.buyin }}</td>
   <td>{{ tournament.pcttobesold }}</td>
   <td>{{ tournament.pctleft }}</td>
+  {% if tournament.buyers %}
   <tr>
     <thead class="thead-dark">
     <th scope="col">Buyer</th>
     <th scope="col">% Bought</th>
     </thead>
   </tr>
+  
   {% for buyer in tournament.buyers %}
   <tr>
     <td>{{ buyer[2] }}</td>
@@ -32,6 +34,7 @@
   </tr>
     
     {% endfor %}
+    {% endif %}
 </tr>
 {% endfor %}
 </table>

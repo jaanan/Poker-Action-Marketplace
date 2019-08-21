@@ -2,7 +2,8 @@
 
 {% block body %}
 <form method="POST" action="{{ url_for('tournaments_create') }}">
-  <table>
+  <div>
+  <table class="table">
     <tr>
       <td>
         {{ form.tournament.label }}
@@ -19,9 +20,10 @@
         <td>{{ form.pcttobesold.label }}</td>
         <td>{{ form.pcttobesold }}</td>
       </tr>
+      </div>
     <tr>
       <td colspan="2">
-        <input type="submit" value="Add a new tournament to the marketplace" />
+        <input type="submit" value="Add a new tournament" class="btn btn-dark" />
       </td>
     </tr>
 </form>

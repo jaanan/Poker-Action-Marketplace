@@ -1,14 +1,24 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<h1>Welcome to Poker Action Marketplace</h1>
-<h2>You wont see your own tournaments since you cannot buy your own action!</h2>
-<table>
-  <th>Seller</th>
-  <th>Tournaments</th>
-  <th>Buyin</th>
-  <th>% for sale</th>
-  <th>% still left</th>
+<!-- <h1>Welcome to Poker Action Marketplace</h1>
+<h2>You wont see your own tournaments since you cannot buy your own action!</h2> -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to Poker Action Marketplace!</h1>
+    <p class="lead">Here you can buy shares for tournaments from other players. You wont see your own though, since you cannot buy your own action. Good luck!</p>
+  </div>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+  <th scope="col">Seller</th>
+  <th scope="col">Tournaments</th>
+  <th scope="col">Buyin</th>
+  <th scope="col">% for sale</th>
+  <th scope="col">% still left</th>
+  <th scope="col">Buy Action!</th>
+  </thead>
   {% for tournament in tournaments %}
   <tr>
     <td>{{ tournament.user }}</td>

@@ -31,7 +31,7 @@ def tournaments_create():
     db.session().add(t)
     db.session().commit()
 
-    return redirect(url_for("tournaments_index"))
+    return redirect(url_for("tournaments_create"))
 
 @app.route('/tournaments/<tournament_id>', methods=["POST"])
 @login_required

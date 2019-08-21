@@ -1,12 +1,18 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<h1>These are the tournaments you have sold action for:</h1>
-<table>
-    <th>Tournament name</th>
-    <th>buyIn</th>
-    <th>% Total for sale</th>
-    <th>% Left for sale</th>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">These are the tournaments you have sold action for:</h1>
+  </div>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <th scope="col">Tournament name</th>
+    <th scope="col">buyIn</th>
+    <th scope="col">% Total for sale</th>
+    <th scope="col">% Left for sale</th>
+    </thead>
 {% for tournament in soldTournaments %}
 <tr>
   <td>{{ tournament.tournament }}</td>
@@ -14,8 +20,10 @@
   <td>{{ tournament.pcttobesold }}</td>
   <td>{{ tournament.pctleft }}</td>
   <tr>
-    <th>Buyer</th>
-    <th>% Bought</th>
+    <thead class="thead-dark">
+    <th scope="col">Buyer</th>
+    <th scope="col">% Bought</th>
+    </thead>
   </tr>
   {% for buyer in tournament.buyers %}
   <tr>
@@ -27,4 +35,7 @@
 </tr>
 {% endfor %}
 </table>
+
+
+
 {% endblock %}

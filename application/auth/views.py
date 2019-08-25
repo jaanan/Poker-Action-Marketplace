@@ -21,7 +21,7 @@ def auth_login():
     print("User:" + user.name + "was recognized")
 
     login_user(user)
-    return redirect(url_for("index"))
+    return redirect(url_for("tournaments_create"))
 
 @app.route('/auth/logout')
 def auth_logout():

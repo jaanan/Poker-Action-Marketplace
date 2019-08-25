@@ -1,15 +1,24 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<!-- <h1>Welcome to Poker Action Marketplace</h1>
-<h2>You wont see your own tournaments since you cannot buy your own action!</h2> -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Welcome to Poker Action Marketplace!</h1>
-    <p class="lead">Here you can buy shares for tournaments from other players. You wont see your own though, since you cannot buy your own action. Good luck!</p>
+    <h1 class="display-4" align=center>Welcome to Poker Action Marketplace!</h1>
+    <p class="lead" align=center>Here you can buy shares for tournaments from other players. You wont see your own though, since you cannot buy your own action. Good luck!</p>
   </div>
 </div>
-
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4" align=center>Invalid input!</h1>
+    {% for message in messages %}
+    <p class="lead" align=center>{{ message }}</p>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+  {% endwith %}
 <table class="table">
   <thead class="thead-dark">
   <th scope="col">Seller</th>

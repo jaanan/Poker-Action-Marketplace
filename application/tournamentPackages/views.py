@@ -1,9 +1,10 @@
 from application import app, db
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from application.tournamentPackages.models import TournamentPackage, BoughtActionFromTournament
 from application.auth.models import User
 from flask_login import login_required, current_user
 from application.tournamentPackages.forms import TournamentPackageForm
+import re
 
 
 @app.route('/tournaments/', methods=['GET'])
@@ -38,7 +39,19 @@ def tournaments_create():
 def tournaments_buy_percentage(tournament_id):
     t = TournamentPackage.query.get(tournament_id)
     user = User.query.get(t.account_id)
+
+    onlynumbers = re.match("^[0-9]*$", request.form['text'])
+    input = request.form['text']
+
+    if input == '' or not onlynumbers:
+        flash('Only numbers and the field cannot be empty!')
+        return redirect(url_for('tournaments_index'))
+
     percentage = int(request.form['text'])
+    if percentage < 0 or percentage > t.pctleft:
+        flash("You need to buy more than 0 and less or equal what is for sale")
+        return redirect(url_for('tournaments_index'))
+
 
     t.pctleft = t.pctleft - percentage
 

@@ -2,8 +2,14 @@
 
 {% block body %}
 {{ error }}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4" align=center>Login here!</h1>
+  </div>
+</div>
+
 <form method="POST" action="{{ url_for('auth_login') }}">
-  <table>
+  <table class="table" style="width: auto" align=center>
     <tr>
       <td>
         {{ form.username.label }}
@@ -22,7 +28,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <input type="submit" value="Login" />
+        <input type="submit" value="Login" class="btn btn-dark"/>
       </td>
     </tr>
 </form>

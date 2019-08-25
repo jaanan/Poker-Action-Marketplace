@@ -3,8 +3,12 @@
 {% block body %}
 {{ error }}
 <form method="POST" action="{{ url_for('auth_register') }}">
-  <h1>REGISTER HERE</h1>
-<table>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4" align=center>Register to access the site!</h1>
+    </div>
+  </div>
+<table class="table" style="width: auto" align=center>
   <tr>
     <td>{{ form.name.label }}</td>
     <td>{{ form.name }}</td>
@@ -27,7 +31,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <input type="submit" value="Register" />
+        <input type="submit" value="Register" class="btn btn-dark"/>
       </td>
     </tr>
 </form>

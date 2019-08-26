@@ -23,6 +23,7 @@ def tournaments_form():
 @login_required(role="USER")
 def tournaments_create():
     form = TournamentPackageForm(request.form)
+
     t = TournamentPackage(form.tournament.data, form.buyin.data, form.pcttobesold.data)
     t.pctLeft = form.pcttobesold.data
 
@@ -32,6 +33,14 @@ def tournaments_create():
     db.session().commit()
 
     return redirect(url_for("tournaments_form"))
+
+def is_number(n):
+    try:
+        int(n)
+        return True
+    except ValueError:
+        return False
+
 
 @app.route('/tournaments/<tournament_id>', methods=["POST"])
 @login_required(role="USER")

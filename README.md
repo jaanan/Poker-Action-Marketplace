@@ -19,9 +19,10 @@ purpose of this site is to connect the sellers and the buyers conveniently.
 
 ## Test credentials
 
-username: testi
-password: testi
+username: admin
+password: admin
 
+Only admin can see the hidden statistics view so use this to check it out.
 Password hashing is under work so you dont want to use a real password.
 
 ## How to run it locally

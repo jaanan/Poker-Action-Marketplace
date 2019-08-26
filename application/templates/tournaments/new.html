@@ -2,7 +2,19 @@
 
 {% block body %}
 <form method="POST" action="{{ url_for('tournaments_create') }}">
-  <div>
+
+<!-- {% if errors %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Invalid Input!</h1>
+    {% for error in errors %}
+    <li class="lead">{{ error }}</li>
+    {% endfor %}
+  </div>
+</div>
+  {% endif %}
+   -->
+  <div align=center>
   <table class="table" style="width: auto">
     <tr>
       <td>
@@ -20,11 +32,12 @@
         <td>{{ form.pcttobesold.label }}</td>
         <td>{{ form.pcttobesold }}</td>
       </tr>
-      </div>
+  
     <tr>
       <td colspan="2">
         <input type="submit" value="Add a new tournament" class="btn btn-dark" />
       </td>
     </tr>
+        </div>
 </form>
 {% endblock %}

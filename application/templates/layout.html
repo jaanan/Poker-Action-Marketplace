@@ -28,6 +28,13 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('show_sold_tournaments') }}">Sold Action</a>
           </li>
+          {% if current_user.is_authenticated %}
+          {% if current_user.role()[0] == "ADMIN" %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('show_statistics') }}">Statistics</a>
+          </li>
+          {% endif %}
+          {% endif %}
         </ul>
         <div class="form-inline mt-2 mt-md-0">
           {% if current_user.is_authenticated %}

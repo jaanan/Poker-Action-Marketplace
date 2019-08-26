@@ -1,26 +1,26 @@
-from application import app, db
+from application import app, db, login_required
 from flask import render_template, request, redirect, url_for, flash
 from application.tournamentPackages.models import TournamentPackage, BoughtActionFromTournament
 from application.auth.models import User
-from flask_login import login_required, current_user
+from flask_login import current_user
 from application.tournamentPackages.forms import TournamentPackageForm
 import re
 
 
 @app.route('/tournaments/', methods=['GET'])
-@login_required
+@login_required(role="USER")
 def tournaments_index():
     tournaments = TournamentPackage.join_account_on_tournaments()
 
     return render_template('tournaments/list.html', tournaments = tournaments)
 
 @app.route('/tournaments/new')
-@login_required
+@login_required(role="USER")
 def tournaments_form():
     return render_template('tournaments/new.html', form = TournamentPackageForm())
 
 @app.route('/tournaments/', methods=['POST'])
-@login_required
+@login_required(role="USER")
 def tournaments_create():
     form = TournamentPackageForm(request.form)
     t = TournamentPackage(form.tournament.data, form.buyin.data, form.pcttobesold.data)
@@ -34,7 +34,7 @@ def tournaments_create():
     return redirect(url_for("tournaments_form"))
 
 @app.route('/tournaments/<tournament_id>', methods=["POST"])
-@login_required
+@login_required(role="USER")
 def tournaments_buy_percentage(tournament_id):
     t = TournamentPackage.query.get(tournament_id)
     user = User.query.get(t.account_id)
@@ -65,7 +65,7 @@ def tournaments_buy_percentage(tournament_id):
     return redirect(url_for('tournaments_index'))
 
 @app.route('/tournaments/bought', methods=["GET"])
-@login_required
+@login_required(role="USER")
 def show_purchased_tournaments():
 
 
@@ -79,7 +79,7 @@ def show_purchased_tournaments():
     return True
 
 @app.route('/tournaments/sold', methods=["GET"])
-@login_required
+@login_required(role="USER")
 def show_sold_tournaments():
     soldtournaments = TournamentPackage.tournaments_sold_action_from(current_user.id)
     for row in soldtournaments:
@@ -89,7 +89,7 @@ def show_sold_tournaments():
     return render_template('tournaments/sold.html', soldTournaments = soldtournaments)
 
 @app.route('/tournaments/sold/<tournament_id>/', methods=['POST'])
-@login_required
+@login_required(role="USER")
 def remove_tournament_from_sale(tournament_id):
     tournamentToDelete = TournamentPackage.query.get(tournament_id)
     referencesToDelete = BoughtActionFromTournament.query.filter_by(tournament_package_id = tournament_id)
@@ -106,6 +106,7 @@ def remove_tournament_from_sale(tournament_id):
     return redirect(url_for('show_sold_tournaments'))
 
 @app.route('/tournaments/statistics/', methods=["GET"])
+@login_required(role="ADMIN")
 def show_statistics():
     topBuyers = TournamentPackage.top_buyers()
     topBuyers.sort(key=lambda x: x[0], reverse=True)

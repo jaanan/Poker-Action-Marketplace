@@ -89,3 +89,25 @@ def show_sold_tournaments():
             print(tour)
     return render_template('tournaments/sold.html', soldTournaments = soldtournaments)
 
+@app.route('/tournaments/sold/<tournament_id>/', methods=['POST'])
+@login_required
+def remove_tournament_from_sale(tournament_id):
+    tournamentToDelete = TournamentPackage.query.get(tournament_id)
+    referencesToDelete = BoughtActionFromTournament.query.filter_by(tournament_package_id = tournament_id)
+    print("TURNAUS")
+    print(tournamentToDelete)
+    print("MINITURNAUKSET")
+    for row in referencesToDelete:
+        print(row.tournament_package_id)
+
+    db.session.delete(tournamentToDelete)
+    for row in referencesToDelete:
+        db.session.delete(row)
+    #db.session.delete(referencesToDelete)
+
+    try:
+        db.session.commit()
+    except:
+        db.session.rollback()
+
+    return redirect(url_for('show_sold_tournaments'))

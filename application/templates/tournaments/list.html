@@ -8,7 +8,7 @@
   </div>
 </div>
 {% with messages = get_flashed_messages() %}
-{% if messages %}
+{% if messages and not "Please login to use this functionality" in messages[0] %}
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4" align=center>Invalid input!</h1>
@@ -35,10 +35,14 @@
     <td>{{ tournament.buyin }}</td>
     <td>{{ tournament.pcttobesold }}</td>
     <td>{{ tournament.pctleft }}</td>
+    {% if tournament.pctleft == 0 %}
+    <td><button class="btn btn-dark">All sold!</button></td>
+    {% else %}
     <td><form method="POST", action="{{ url_for('tournaments_buy_percentage', tournament_id = tournament.id) }}">
       <input name="text">
-      <input type="submit", value='Buy %'>
+      <input type="submit", value='Buy %' class="btn btn-dark">
     </form></td>
+    {% endif %}
   </tr>
 {% endfor %}
 </table>

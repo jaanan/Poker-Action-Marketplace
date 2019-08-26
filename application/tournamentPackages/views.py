@@ -11,7 +11,6 @@ import re
 @login_required
 def tournaments_index():
     tournaments = TournamentPackage.join_account_on_tournaments()
-    tournaments.sort(key = lambda x: x.user, reverse=True)
 
     return render_template('tournaments/list.html', tournaments = tournaments)
 
@@ -94,16 +93,10 @@ def show_sold_tournaments():
 def remove_tournament_from_sale(tournament_id):
     tournamentToDelete = TournamentPackage.query.get(tournament_id)
     referencesToDelete = BoughtActionFromTournament.query.filter_by(tournament_package_id = tournament_id)
-    print("TURNAUS")
-    print(tournamentToDelete)
-    print("MINITURNAUKSET")
-    for row in referencesToDelete:
-        print(row.tournament_package_id)
 
     db.session.delete(tournamentToDelete)
-    for row in referencesToDelete:
-        db.session.delete(row)
-    #db.session.delete(referencesToDelete)
+    for reference in referencesToDelete:
+        db.session.delete(reference)
 
     try:
         db.session.commit()
@@ -111,3 +104,12 @@ def remove_tournament_from_sale(tournament_id):
         db.session.rollback()
 
     return redirect(url_for('show_sold_tournaments'))
+
+@app.route('/tournaments/statistics/', methods=["GET"])
+def show_statistics():
+    topBuyers = TournamentPackage.top_buyers()
+    topBuyers.sort(key=lambda x: x[0], reverse=True)
+    topSellers = TournamentPackage.top_sellers()
+    topSellers.sort(key=lambda x: x[0], reverse=True)
+
+    return render_template('tournaments/statistics.html', topBuyers = topBuyers, topSellers = topSellers)

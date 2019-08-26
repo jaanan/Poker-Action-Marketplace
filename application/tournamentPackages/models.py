@@ -38,6 +38,7 @@ class TournamentPackage(Base):
                 continue
             tournaments.append(tournament)
 
+        tournaments.sort(key=lambda x: x.user, reverse=True)
         return tournaments
 
     @staticmethod
@@ -96,6 +97,37 @@ class TournamentPackage(Base):
 
         return buyers
 
+
+    @staticmethod
+    def top_buyers():
+        stmt = text("SELECT count(buyer_id), account.name FROM bought_action_from_tournament "
+                    "left join account on bought_action_from_tournament.buyer_id = account.id "
+                    "group by account.name")
+        res = db.engine.execute(stmt)
+        topBuyers = []
+
+        for row in res:
+            temp = list(row)
+            topBuyers.append(temp)
+
+        return topBuyers
+
+
+
+    @staticmethod
+    def top_sellers():
+        stmt = text("SELECT COUNT(account.id), account.name FROM tournament_package "
+                    "left join account on tournament_package.account_id = account.id "
+                    "group by account.name")
+
+        res = db.engine.execute(stmt)
+        topSellers = []
+
+        for row in res:
+            temp = list(row)
+            topSellers.append(temp)
+
+        return topSellers
 
 
 class BoughtActionFromTournament(Base):

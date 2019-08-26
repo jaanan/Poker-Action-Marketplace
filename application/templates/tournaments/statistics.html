@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4" align=center>Top buyers and sellers can be found here!</h1>
+  </div>
+</div>
+<div class="col-xs-6">
+  <h2 class="sub-header">Top buyers!</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th class="col-md-1">#</th>
+          <th class="col-md-2">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for buyer in topBuyers %}
+        <tr>
+          <td class="col-md-1">{{ buyer[0] }}</td>
+          <td class="col-md-2">{{ buyer[1] }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="col-xs-6">
+  <h2 class="sub-header">Top sellers!</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th class="col-md-1">#</th>
+          <th class="col-md-2">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for seller in topSellers %}
+        <tr>
+          <td class="col-md-1">{{ seller[0] }}</td>
+          <td class="col-md-2">{{ seller[1] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+      </tbody>
+    </table>
+  </div>
+
+</table>
+{% endblock %}

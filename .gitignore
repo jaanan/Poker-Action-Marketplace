@@ -1,6 +1,6 @@
 venv
 __pycach__
-tasks.db 
+tournaments.db 
 .idea/
 .idea
 .idea\

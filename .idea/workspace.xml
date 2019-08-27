@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b3cdd31-d7aa-488f-8bd0-55ea591510e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/tournaments/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/tournaments/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/tournamentPackages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournamentPackages/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/tournaments.db" beforeDir="false" afterPath="$PROJECT_DIR$/application/tournaments.db" afterDir="false" />
-    </list>
+    <list default="true" id="4b3cdd31-d7aa-488f-8bd0-55ea591510e0" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,16 +318,15 @@
       <workItem from="1566746386667" duration="3998000" />
       <workItem from="1566792231421" duration="5712000" />
       <workItem from="1566800731728" duration="5634000" />
-      <workItem from="1566807249990" duration="5277000" />
+      <workItem from="1566807249990" duration="5944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100170000" />
+    <option name="totallyTimeSpent" value="100837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1287" y="-360" width="1294" height="1407" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4968603" visible="true" weight="0.16855754" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

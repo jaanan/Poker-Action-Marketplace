@@ -2,3 +2,4 @@ venv
 __pycach__
 tournaments.db 
 /.idea/*
+.idea*/
